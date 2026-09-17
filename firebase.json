@@ -2,7 +2,7 @@
   "firebases": [
     {
       "name": "Firebase 1",
-      "url": "https//:needhai-default-rtdb.firebaseio.com",
+      "url": "https://needhai-default-rtdb.firebaseio.com",
       "key": ""
     }
   ]
