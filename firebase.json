@@ -1,0 +1,9 @@
+{
+  "firebases": [
+    {
+      "name": "Firebase 1",
+      "url": "https//:needhai-default-rtdb.firebaseio.com",
+      "key": "https//:needhai-default-rtdb.firebaseio.com"
+    }
+  ]
+}
